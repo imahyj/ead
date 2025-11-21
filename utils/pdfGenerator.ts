@@ -1,10 +1,8 @@
 import { Story } from "../types";
-// We are using the global jsPDF loaded via CDN in index.html
-// In a strictly typed environment we would declare it.
-declare const jspdf: any;
+import { jsPDF } from "jspdf";
 
 export const generatePDF = async (story: Story): Promise<void> => {
-  const { jsPDF } = jspdf;
+  // Initialize jsPDF with standard A4 portrait configuration
   const doc = new jsPDF({
     orientation: "portrait",
     unit: "mm",
